@@ -13,12 +13,7 @@ public class UserDbHandler extends DbHandler{
     private final String USER_DB_PASSWORD = "password";
     private final String USER_DB_PASSWORD_SALT = "salt";
     private final String USER_DB_EMAIL = "email";
-    private final String USER_DB_SQL = "CREATE TABLE IF NOT EXISTS " + USER_TABLE_NAME + "(id INT NOT NULL AUTO_INCREMENT, "
-            + USER_DB_USERNAME + " VARCHAR(255), " + USER_DB_PASSWORD + " VARCHAR(255), " + USER_DB_PASSWORD_SALT + " VARCHAR(255),"
-            + USER_DB_EMAIL + " VARCHAR(255), PRIMARY KEY ( id ))";
 
-    private final String[] TABLES = { USER_TABLE_NAME };
-    private final String[] TABLES_SQL = { USER_DB_SQL };
 
 
     public UserDbHandler() {
