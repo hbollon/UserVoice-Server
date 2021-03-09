@@ -8,8 +8,10 @@ import entreprisecorp.restservices.models.User;
 
 @SpringBootApplication
 public class App {
+
+	public static Database db;
 	public static void main(String[] args) {
-		Database db = new Database();
+		db = new Database();
 		if(db.insertUser(new User("hbollon", "loloLeBouf", "hugo.bollon@gmail.com"))) {
 			System.out.println("User hbollon successfully registered!");
 		}
@@ -18,7 +20,7 @@ public class App {
 		if(connectHbollon.getUsername() == "hbollon") {
 			System.out.println("User hbollon successfully logged!");
 		}
-		
+
 		SpringApplication.run(App.class, args);
 	}
 }

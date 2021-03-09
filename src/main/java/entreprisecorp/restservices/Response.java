@@ -1,14 +1,16 @@
 package entreprisecorp.restservices;
 
-public class Register {
+/**
+ * This class is the response template used to responde to the rest request
+ */
+
+public class Response {
     private final long id;
     private final String content;
-    private final boolean success;
 
-    public Register(long id, String content, boolean success) {
+    public Response(long id, String content) {
         this.id = id;
         this.content = content;
-        this.success = success;
     }
 
     public long getId() {
@@ -18,9 +20,4 @@ public class Register {
     public String getContent() {
         return content;
     }
-
-    public boolean getSucess() {
-        return success;
-    }
 }
-
