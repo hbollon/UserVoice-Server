@@ -25,7 +25,11 @@ public class FeaturesDbHandler extends DbHandler {
     }
 
 
-
+    /**
+     * Create table for the site
+     * @param nameTable
+     * @throws SQLException
+     */
     public void CreateTable(String nameTable) throws SQLException {
 
         String FEATURE_DB_SQL = "CREATE TABLE IF NOT EXISTS " + nameTable + "(id INT NOT NULL AUTO_INCREMENT, "
@@ -70,7 +74,11 @@ public class FeaturesDbHandler extends DbHandler {
         }
     }
 
-
+    /**
+     * Select 2 random features in the table for a Match
+     * @param nameTable
+     * @return
+     */
     public MatchFeatures getMatchFeature(String nameTable) {
         String sql = "SELECT * FROM " + nameTable + " ORDER BY RAND() LIMIT 2";
         try (Statement st = conn.createStatement();
@@ -89,6 +97,12 @@ public class FeaturesDbHandler extends DbHandler {
         return null;
     }
 
+    /**
+     * Get List of features from the same author
+     * @param emailAuthor
+     * @param nameTable
+     * @return
+     */
     public ListFeatures getFeatureByAuthor(String emailAuthor, String nameTable) {
         String sql = "SELECT * FROM " + nameTable + " WHERE `" + FEATURE_DB_AUTHOR + "`='" + emailAuthor + "'";
         try (Statement st = conn.createStatement();
