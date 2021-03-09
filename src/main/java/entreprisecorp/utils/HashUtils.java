@@ -16,6 +16,11 @@ public class HashUtils {
     private static final int ITERATIONS = 10000;
     private static final int KEY_LENGTH = 256;
 
+    /**
+     * Generate random salt from given length
+     * @param length
+     * @return Salt as string
+     */
     public static String getSalt(int length) {
         StringBuilder returnValue = new StringBuilder(length);
         for (int i = 0; i < length; i++) {
@@ -24,6 +29,12 @@ public class HashUtils {
         return new String(returnValue);
     }
 
+    /**
+     * Hash given password with associated salt
+     * @param password
+     * @param salt
+     * @return
+     */
     private static byte[] hash(char[] password, byte[] salt) {
         PBEKeySpec spec = new PBEKeySpec(password, salt, ITERATIONS, KEY_LENGTH);
         Arrays.fill(password, Character.MIN_VALUE);
@@ -37,6 +48,12 @@ public class HashUtils {
         }
     }
 
+    /**
+     * Hash and encode password with given salt
+     * @param password
+     * @param salt
+     * @return
+     */
     public static String generateSecurePassword(String password, String salt) {
         String returnValue = null;
         byte[] securePassword = hash(password.toCharArray(), salt.getBytes());
@@ -46,6 +63,13 @@ public class HashUtils {
         return returnValue;
     }
 
+    /**
+     * Check validity between password and hashed one.
+     * @param providedPassword
+     * @param securedPassword
+     * @param salt
+     * @return Match status
+     */
     public static boolean verifyUserPassword(String providedPassword, String securedPassword, String salt) {
         boolean returnValue = false;
 
