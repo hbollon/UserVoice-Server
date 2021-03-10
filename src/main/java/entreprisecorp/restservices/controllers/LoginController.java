@@ -23,9 +23,9 @@ public class LoginController {
         consumes = "application/json", 
         produces = "application/json"
     )
-    public Response login(@RequestBody JsonObject user)
+    public Response login(@RequestBody User user)
     {
-        User connectedUser = App.userDbHandler.connectUser(user.getString("email"), user.getString("password"));
+        User connectedUser = App.userDbHandler.connectUser(user.getEmail(), user.getPassword());
         if(connectedUser != null){
             Gson gson = new Gson();
             String userJson = gson.toJson(connectedUser);
