@@ -28,6 +28,11 @@ public class Admin {
         this.tableFeatures = this.company + "features";
     }
 
+    public Admin() {
+    }
+
+
+
     public int getDbId() {
         return dbId;
     }

@@ -3,8 +3,8 @@ package entreprisecorp.restservices.models.features;
 public class Feature {
     private int id;
     private String textFeature;
-    private int ELO;
-    private int MMR;
+    private int ELO = 0;
+    private int MMR = 0;
     private String authorEmail;
 
     public Feature(int id, String textFeature, int ELO, int MMR, String authorEmail) {
@@ -19,6 +19,11 @@ public class Feature {
         this.textFeature = textFeature;
         this.ELO = ELO;
         this.MMR = MMR;
+        this.authorEmail = authorEmail;
+    }
+
+    public Feature(String textFeature, String authorEmail) {
+        this.textFeature = textFeature;
         this.authorEmail = authorEmail;
     }
 

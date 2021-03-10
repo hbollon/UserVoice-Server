@@ -17,7 +17,7 @@ public class RegisterController {
     private final AtomicLong counter = new AtomicLong();
 
     @PostMapping(
-        path = "/register", 
+        path = "/user/register",
         consumes = "application/json", 
         produces = "application/json"
     )

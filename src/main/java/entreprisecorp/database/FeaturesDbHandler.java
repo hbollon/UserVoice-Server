@@ -117,6 +117,22 @@ public class FeaturesDbHandler extends DbHandler {
         return null;
     }
 
+    public ListFeatures getFeatureByTable(String nameTable) {
+        String sql = "SELECT * FROM " + nameTable;
+        try (Statement st = conn.createStatement();
+             ResultSet rs = st.executeQuery(sql)) {
+            ListFeatures listFeatures = new ListFeatures();
+            while(rs.next()) {
+                listFeatures.addFeature(new Feature(rs.getInt(1), rs.getString(2), rs.getInt(3),rs.getInt(4), rs.getString(5)));
+            }
+            return listFeatures;
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
 
 
 }

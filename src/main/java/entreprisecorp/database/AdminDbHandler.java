@@ -103,7 +103,14 @@ public class AdminDbHandler extends DbHandler{
                 // Check password validity
                 if (HashUtils.verifyUserPassword(password, rs.getString(3), rs.getString(4))) {
                     System.out.println("Admin successfully logged in!");
-                    return new Admin(rs.getInt(1),rs.getString(2),rs.getString(3),rs.getString(4),rs.getString(5),rs.getString(6));
+                    Admin admin = new Admin();
+                    admin.setDbId(rs.getInt(1));
+                    admin.setCompany(rs.getString(2));
+                    admin.setEmail(rs.getString(5));
+                    admin.setApiKey(rs.getString(6));
+                    admin.setTableFeatures(rs.getString(7));
+
+                    return admin;
                 }
             }
             System.out.println("Admin not recognized!");

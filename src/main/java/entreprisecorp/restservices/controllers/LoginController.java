@@ -19,7 +19,7 @@ public class LoginController {
     private final AtomicLong counter = new AtomicLong();
 
     @PostMapping(
-        path = "/login", 
+        path = "/user/login",
         consumes = "application/json", 
         produces = "application/json"
     )
