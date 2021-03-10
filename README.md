@@ -5,6 +5,7 @@
 `Register a user:`
 
 url : localhost:8080/register
+
 requestedJson:
 ```json
 {
@@ -25,6 +26,7 @@ Response :
 `Login:`
 
 url : localhost:8080/login
+
 requestedJson:
 ```json
 {
@@ -44,6 +46,7 @@ Response :
 `Get a Match of two randow features:`
 
 url : localhost:8080/getMatch
+
 requestedJson:
 ```json
 {
