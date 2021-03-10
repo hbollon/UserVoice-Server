@@ -2,12 +2,10 @@ package entreprisecorp;
 
 import entreprisecorp.database.Database;
 import entreprisecorp.database.FeaturesDbHandler;
-import entreprisecorp.restservices.models.Feature;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 import entreprisecorp.database.UserDbHandler;
-import entreprisecorp.restservices.models.User;
 
 import java.sql.SQLException;
 

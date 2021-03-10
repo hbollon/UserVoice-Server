@@ -29,7 +29,7 @@ public class Database {
             + USER_DB_EMAIL + " VARCHAR(255), PRIMARY KEY ( id ))";
 
     private final String ADMIN_TABLE_NAME = "admin";
-    private final String ADMIN_DB_USERNAME = "compagny";
+    private final String ADMIN_DB_USERNAME = "company";
     private final String ADMIN_DB_PASSWORD = "password";
     private final String ADMIN_DB_PASSWORD_SALT = "salt";
     private final String ADMIN_DB_EMAIL = "email";

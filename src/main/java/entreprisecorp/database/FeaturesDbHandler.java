@@ -1,10 +1,8 @@
 package entreprisecorp.database;
 
-import entreprisecorp.restservices.models.Feature;
-import entreprisecorp.restservices.models.ListFeatures;
-import entreprisecorp.restservices.models.MatchFeatures;
-import entreprisecorp.restservices.models.User;
-import entreprisecorp.utils.HashUtils;
+import entreprisecorp.restservices.models.features.Feature;
+import entreprisecorp.restservices.models.features.ListFeatures;
+import entreprisecorp.restservices.models.features.MatchFeatures;
 
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;

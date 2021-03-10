@@ -1,4 +1,4 @@
-package entreprisecorp.restservices.models;
+package entreprisecorp.restservices.models.features;
 
 import java.util.ArrayList;
 
