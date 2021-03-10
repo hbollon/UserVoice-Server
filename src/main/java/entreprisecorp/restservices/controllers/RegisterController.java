@@ -24,7 +24,7 @@ public class RegisterController {
     public ResponseSuccess register(
         @RequestBody User user) 
     {
-        boolean success = App.db.insertUser(user);
+        boolean success = App.userDbHandler.insertUser(user);
         if(success){
             System.err.println("User registration done!");
             Gson gson = new Gson();
