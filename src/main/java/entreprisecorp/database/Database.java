@@ -28,8 +28,20 @@ public class Database {
             + USER_DB_USERNAME + " VARCHAR(255), " + USER_DB_PASSWORD + " VARCHAR(255), " + USER_DB_PASSWORD_SALT + " VARCHAR(255),"
             + USER_DB_EMAIL + " VARCHAR(255), PRIMARY KEY ( id ))";
 
-    private final String[] TABLES = { USER_TABLE_NAME };
-    private final String[] TABLES_SQL = { USER_DB_SQL };
+    private final String ADMIN_TABLE_NAME = "admin";
+    private final String ADMIN_DB_USERNAME = "compagny";
+    private final String ADMIN_DB_PASSWORD = "password";
+    private final String ADMIN_DB_PASSWORD_SALT = "salt";
+    private final String ADMIN_DB_EMAIL = "email";
+    private final String ADMIN_DB_APIKEY = "apikey";
+    private final String ADMIN_DB_TABLE_NAME_FEATURES = "tablefeatures";
+    private final String ADMIN_DB_SQL = "CREATE TABLE IF NOT EXISTS " + ADMIN_TABLE_NAME + "(id INT NOT NULL AUTO_INCREMENT, "
+            + ADMIN_DB_USERNAME + " VARCHAR(255), " + ADMIN_DB_PASSWORD + " VARCHAR(255), " + ADMIN_DB_PASSWORD_SALT + " VARCHAR(255),"
+            + ADMIN_DB_EMAIL + " VARCHAR(255)," + ADMIN_DB_APIKEY + " VARCHAR(255)," + ADMIN_DB_TABLE_NAME_FEATURES + " VARCHAR(255), PRIMARY KEY ( id ))";
+
+
+    private final String[] TABLES = { USER_TABLE_NAME, ADMIN_TABLE_NAME };
+    private final String[] TABLES_SQL = { USER_DB_SQL, ADMIN_DB_SQL };
 
     public Connection conn;
     public Statement statement;
