@@ -22,6 +22,9 @@ public class Feature {
         this.authorEmail = authorEmail;
     }
 
+    public Feature() {
+    }
+
     public int getId() {
         return id;
     }
@@ -61,6 +64,8 @@ public class Feature {
     public void setAuthorEmail(String authorEmail) {
         this.authorEmail = authorEmail;
     }
+
+
 
     @Override
     public String toString() {

@@ -1,5 +1,6 @@
 package entreprisecorp.database;
 
+import entreprisecorp.App;
 import entreprisecorp.restservices.models.Admin;
 import entreprisecorp.restservices.models.User;
 import entreprisecorp.utils.HashUtils;
@@ -20,6 +21,11 @@ public class AdminDbHandler extends DbHandler{
     private final String ADMIN_DB_TABLE_NAME_FEATURES = "tablefeatures";
 
 
+    /**
+     * Create admin in database + call createTable() for features
+     * @param admin
+     * @return
+     */
     public boolean insertAdmin(Admin admin) {
         try {
             // Check if the user already have an account registered with his email
@@ -51,6 +57,9 @@ public class AdminDbHandler extends DbHandler{
             int result = statement.executeUpdate();
             if (result > 0) {
                 System.out.println("A new admin was inserted successfully!");
+
+                //Create features Table
+                App.featuresDbHandler.CreateTable(admin.getTableFeatures());
                 return true;
             } else {
                 return false;
@@ -61,6 +70,11 @@ public class AdminDbHandler extends DbHandler{
         }
     }
 
+    /**
+     * Get admin
+     * @param email
+     * @return
+     */
     public Admin getAdmin(String email) {
         String sql = "SELECT * FROM " + ADMIN_TABLE_NAME + " WHERE `" + ADMIN_DB_EMAIL + "`='" + email + "'";
         try (Statement st = conn.createStatement();
@@ -75,6 +89,12 @@ public class AdminDbHandler extends DbHandler{
         return null;
     }
 
+    /**
+     * Return admin info if password matches
+     * @param email
+     * @param password
+     * @return
+     */
     public Admin connectAdmin(String email, String password) {
         String sql = "SELECT * FROM " + ADMIN_TABLE_NAME + " WHERE `" + ADMIN_DB_EMAIL + "`='" + email + "'";
         try (Statement st = conn.createStatement();
@@ -92,6 +112,22 @@ public class AdminDbHandler extends DbHandler{
         }
         return null;
     }
+
+
+    public String getTableNameFromApiKey(String apiKey){
+        String sql = "SELECT " + ADMIN_DB_TABLE_NAME_FEATURES + " FROM " + ADMIN_TABLE_NAME + " WHERE `" + ADMIN_DB_APIKEY + "`='" + apiKey + "'";
+        try (Statement st = conn.createStatement();
+             ResultSet rs = st.executeQuery(sql)) {
+            if (rs.next()) {
+                return rs.getString(1);
+            }
+            System.out.println("Admin not recognized!");
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return "la clef d'api n'est pas bonne";
+    }
+
 
 
 }

@@ -4,7 +4,6 @@ package entreprisecorp.restservices;
  * This class is the response template used to responde to the rest request
  * It's embed success boolean
  */
-
 public class ResponseSuccess {
     private final long id;
     private final String content;
