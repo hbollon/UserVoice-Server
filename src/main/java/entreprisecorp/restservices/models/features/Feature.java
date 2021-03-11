@@ -4,21 +4,21 @@ public class Feature {
     private int id;
     private String textFeature;
     private int ELO = 0;
-    private int MMR = 0;
     private String authorEmail;
+    private boolean won;
 
-    public Feature(int id, String textFeature, int ELO, int MMR, String authorEmail) {
+    public Feature(int id, String textFeature, int ELO,String authorEmail) {
         this.id = id;
         this.textFeature = textFeature;
         this.ELO = ELO;
-        this.MMR = MMR;
         this.authorEmail = authorEmail;
     }
 
-    public Feature(String textFeature, int ELO, int MMR, String authorEmail) {
+
+
+    public Feature(String textFeature, int ELO,String authorEmail) {
         this.textFeature = textFeature;
         this.ELO = ELO;
-        this.MMR = MMR;
         this.authorEmail = authorEmail;
     }
 
@@ -54,13 +54,7 @@ public class Feature {
         this.ELO = ELO;
     }
 
-    public int getMMR() {
-        return MMR;
-    }
 
-    public void setMMR(int MMR) {
-        this.MMR = MMR;
-    }
 
     public String getAuthorEmail() {
         return authorEmail;
@@ -70,7 +64,13 @@ public class Feature {
         this.authorEmail = authorEmail;
     }
 
+    public boolean isWon() {
+        return won;
+    }
 
+    public void setWon(boolean won) {
+        this.won = won;
+    }
 
     @Override
     public String toString() {
@@ -78,7 +78,6 @@ public class Feature {
                 "id=" + id +
                 ", textFeature='" + textFeature + '\'' +
                 ", ELO=" + ELO +
-                ", MMR=" + MMR +
                 ", authorEmail='" + authorEmail + '\'' +
                 '}';
     }
